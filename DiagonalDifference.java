@@ -11,7 +11,7 @@ public class DiagonalDifference {
         Scanner sc= new Scanner(System.in);
         int n=sc.nextInt();
         int[][] arr= new int[n][n];
-        int main_diag, other_diag=0;
+        int main_diag=0, other_diag=0;
         int cnt=0;
         while (cnt<n) {
             for (int j = 0; j < n; j++) {
@@ -19,21 +19,16 @@ public class DiagonalDifference {
                 if (cnt==j){
                     main_diag+=arr[cnt][j];
                 }
-                if (cnt+j==n+1){
+                if (cnt+j+1==n){
                     other_diag+=arr[cnt][j];
+
                 }
 
             }
             cnt++;
         }
-        /*
-        for (int i=0; i<n; i++){
-            for (int j=0; j<n; j++){
-                System.out.println(arr[i][j]);
-            }
-        }
-        */
-        System.out.println(abs(main_diag - other_diag));
+
+        System.out.println(Math.abs(main_diag - other_diag));
 
 
     }
