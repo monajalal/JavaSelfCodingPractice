@@ -43,10 +43,28 @@ public class LLTraversal{
 
         return newNode;
     }
+    //doesn't pass the hackerrank tests!!!
+    public static LLNode InsertNth(LLNode head, int data, int position) {
+        LLNode newNode=new LLNode();
+        LLNode tmp=head;
+        newNode.data=data;
+        int count=0;
+        if (head!=null){
+            if (position==0){
+            newNode.next=head;
+            }
+            else{
+                while (count!=position && tmp!=null){
+                    count++;
+                    tmp=tmp.next;
+                }
+                newNode.next=tmp.next.next;
+                tmp.next=newNode;
+            }
 
-    public static Node InsertNth(Node head, int data, int position) {
-        // This is a "method-only" submission.
-        // You only need to complete this method.
+        }
+        return head;
+
     }
 
 
@@ -66,6 +84,7 @@ public class LLTraversal{
 
         Insert(n1,34);
         InsertAtHead(n1,21);
+        InsertNth(n1, 562, 1);
 
         LLTraversal llt=new LLTraversal();
         llt.Print(n1);
