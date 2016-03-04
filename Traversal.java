@@ -1,5 +1,9 @@
 import apple.laf.JRSUIUtils;
 
+import java.util.logging.Level;
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * Created by mona on 3/3/16.
  */
@@ -25,6 +29,22 @@ public class Traversal {
 
     }
 
+    public static void LevelOrder(TreeNode root){
+        Queue <TreeNode> q = new LinkedList <TreeNode>();
+        TreeNode tmp=root;
+        while (tmp!=null) {
+            q.add(tmp);
+            if (root.left!=null) {
+                q.add(tmp.left);
+            }
+            if (root.left!=null) {
+                q.add(tmp.right);
+            }
+            System.out.print(q.remove().data + " ");
+            tmp=q.peek();
+        }
+
+    }
     public static int height(TreeNode root){
         if (root!=null) {
 
@@ -79,6 +99,7 @@ public class Traversal {
 
         //Preorder(root);
         //System.out.println(height(root));
-        TopView(root);
+        //TopView(root);
+        LevelOrder(root);
     }
 }

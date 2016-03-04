@@ -24,7 +24,6 @@ public class BST {
                 }
             } else {
                 if (root.right != null) {
-
                     BSTInsert(root.right, value);
                 } else {
                     TreeNode newNode = new TreeNode();
