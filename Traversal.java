@@ -30,18 +30,20 @@ public class Traversal {
     }
 
     public static void LevelOrder(TreeNode root){
-        Queue <TreeNode> q = new LinkedList <TreeNode>();
+        Queue <TreeNode> q = new LinkedList <>();
         TreeNode tmp=root;
-        while (tmp!=null) {
-            q.add(tmp);
-            if (root.left!=null) {
+        q.add(tmp);
+        while (!q.isEmpty()) {
+            System.out.print(q.remove().data + " ");
+            if (tmp.left!=null) {
                 q.add(tmp.left);
             }
-            if (root.left!=null) {
+            if (tmp.left!=null) {
                 q.add(tmp.right);
             }
-            System.out.print(q.remove().data + " ");
-            tmp=q.peek();
+            if (!q.isEmpty()) {
+                tmp = q.peek();
+            }
         }
 
     }
