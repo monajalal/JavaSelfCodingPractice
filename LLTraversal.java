@@ -63,6 +63,10 @@ public class LLTraversal{
             }
 
         }
+        else{
+            newNode.next=null;
+            head=newNode;
+        }
         return head;
 
     }
