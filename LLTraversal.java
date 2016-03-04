@@ -71,6 +71,19 @@ public class LLTraversal{
 
     }
 
+    public static void merge(LLNode head1, LLNode head2){
+        LLNode newHead=new LLNode();
+        newHead.data=Math.min(head1.data,head2.data);
+        LLNode tmp1=head1;
+        LLNode tmp2=head2;
+        LLNode tmp=newHead;
+
+        while (tmp1.next!=null & tmp2.next!=null){
+            tmp.next.data=Math.min(tmp1.next.data, tmp2.next.data);
+            tmp1=tmp1.next;
+            tmp2=tmp2.next;
+        }
+    }
 
     public static void main(String[] args){
         LLNode n1=new LLNode();
