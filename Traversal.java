@@ -22,6 +22,7 @@ public class Traversal {
     public static void Postorder(TreeNode root) {
         if (root!=null){
 
+
             Postorder(root.left);
             Postorder(root.right);
             System.out.print(root.data+" ");
