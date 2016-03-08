@@ -1,12 +1,18 @@
 /**
  * Created by mona on 3/4/16.
  */
-/*public class RootTree {
-    public boolean isPowerOfThree(int n) {
+public class RootTree {
+    static boolean isPowerOfThree(int n) {
 
-       // Math.pow(Math.E, Math.log(num)/root)
+     while (n%3==0){
+         n=n/3;
+     }
+       return(n==1);
+    }
 
-        //return Math.pow(Math.E, Math.log(num)/root);
+    public static void main(String[] args){
+        int a=125;
+        System.out.println(isPowerOfThree(a));
+
     }
 }
-*/

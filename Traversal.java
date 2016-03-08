@@ -31,6 +31,7 @@ public class Traversal {
     }
 
     public static void LevelOrder(TreeNode root){
+        /*
         Queue <TreeNode> q = new LinkedList <>();
         TreeNode tmp=root;
         q.add(tmp);
@@ -42,9 +43,34 @@ public class Traversal {
             if (tmp.left!=null) {
                 q.add(tmp.right);
             }
-            if (!q.isEmpty()) {
                 tmp = q.peek();
+        }
+        */
+        /*
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+        while (!q.isEmpty()) {
+            TreeNode tmp = q.poll();
+            if (tmp == null) {
+                continue;
             }
+            System.out.print(tmp.data + " ");
+            q.add(tmp.left);
+            q.add(tmp.right);
+        }
+        */
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+        while (!q.isEmpty()) {
+            TreeNode tmp = q.remove();
+            //need more thoughts here
+            if (tmp == null) {
+                continue;
+            }
+
+            System.out.print(tmp.data + " ");
+            q.add(tmp.left);
+            q.add(tmp.right);
         }
 
     }
