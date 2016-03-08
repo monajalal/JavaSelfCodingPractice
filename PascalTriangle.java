@@ -19,15 +19,15 @@ public class PascalTriangle {
     }
 
     public static List<List<Integer>> generate(int numRows) {
-        List<List<Integer>> l = new ArrayList<List<Integer>>();
-        for (int i=0; i<numRows; i++){
-            l.add(new ArrayList<Integer>());
-            for (int j=0; j<i; j++) {
-                l.get(i).add((int) biCoeff(numRows, j));
+        List<List<Integer>> mylist = new ArrayList<>();
+        for (int i=0; i<=numRows; i++){
+            mylist.add(new ArrayList<Integer>());
+            for (int j=0; j<=i; j++) {
+                mylist.get(i).add((int) biCoeff(i, j));
             }
 
         }
-        return l;
+        return mylist;
     }
 
 
@@ -45,17 +45,6 @@ public class PascalTriangle {
             System.out.println();
         }
 
-        /*List<List<Integer>> l = new ArrayList<>();
-        l.add(Arrays.asList(1,2,3,4));
-        l.add(Arrays.asList(5,6,7,8));
-        for (List<Integer> list : l){
-            for (Integer i: list){
-                System.out.print(i + " ");
-            }
-            System.out.println();
-        }
-        */
-        //System.out.println(biCoeff(4,2));
 
     }
 }
