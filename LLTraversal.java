@@ -85,26 +85,84 @@ public class LLTraversal{
         }
     }
 
+    public static LLNode reverseList(LLNode head){
+        if (head == null){
+            return null;
+        }
+
+        if (head.next == null){
+            return head;
+        }
+
+
+        LLNode headNext = head.next;
+
+        head.next = null;
+
+        LLNode reverseHeadNext = reverseList(headNext);
+
+
+        headNext.next = head;
+
+        return reverseHeadNext;
+    }
+
+
+    public static boolean isPalindrome(LLNode head) {
+        LLNode headCopy=head;
+        LLNode reverseHead=reverseList(headCopy);
+        LLNode tmp1=head;
+        LLNode tmp2=reverseHead;
+        if (tmp1!=null) {
+            while (tmp1.next != null) {
+                if (tmp1.data != tmp2.data) {
+                    return false;
+                } else {
+                    tmp1 = tmp1.next;
+                    tmp2 = tmp2.next;
+                }
+            }
+            if (tmp1.data != tmp2.data) {
+                return false;
+            }
+
+        }
+        return true;
+    }
+
     public static void main(String[] args){
         LLNode n1=new LLNode();
         LLNode n2=new LLNode();
         LLNode n3=new LLNode();
+        LLNode n11=new LLNode();
+        LLNode n22=new LLNode();
+      //  LLNode n33=new LLNode();
 
         n1.data=1;
         n1.next=n2;
 
-        n2.data=10;
+        n2.data=1;
         n2.next=n3;
 
-        n3.data=76;
-        n3.next=null;
+        n3.data=2;
+        n3.next=n22;
 
-        Insert(n1,34);
-        InsertAtHead(n1,21);
-        InsertNth(n1, 562, 1);
+
+        n22.data=1;
+       // n22.next=n33;
+
+       // n33.data=1;
+       // n33.next=null;
+
+        //Insert(n1,34);
+        //InsertAtHead(n1,21);
+        //InsertNth(n1, 562, 1);
 
         LLTraversal llt=new LLTraversal();
         llt.Print(n1);
+       // LLNode n=reverseList(n1);
+       // Print(n);
+        System.out.println(isPalindrome(n1));
 
 
     }
