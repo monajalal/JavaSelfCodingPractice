@@ -5,39 +5,28 @@ import java.util.Stack;
  */
 public class ValidParanthesis {
     public static boolean isValid(String s){
+
         if (s.length()==1 || s==null){
             return true;
         }
         else {
-            char[] charArr = s.toCharArray();
-            Stack<Character> s1 = new Stack<>();
-            Stack<Character> s2 = new Stack<>();
-            Stack<Character> s3 = new Stack<>();
-            Stack<Character> s4 = new Stack<>();
-            Stack<Character> s5 = new Stack<>();
-            Stack<Character> s6 = new Stack<>();
-
-            for (int i = 0; i < charArr.length; i++) {
-                if (charArr[i] == '{') {
-                    s1.push('{');
-                } else if (charArr[i] == '}') {
-                    s2.push('}');
-                } else if (charArr[i] == '(') {
-                    s3.push('(');
-                } else if (charArr[i] == ')') {
-                    s4.push(')');
-                } else if (charArr[i] == '{') {
-                    s5.push('{');
-                } else if (charArr[i] == '}') {
-                    s6.push('}');
+            int cnt1 = 0, cnt2 = 0, cnt3 = 0, cnt4 = 0, cnt5 = 0, cnt6 = 0;
+            for (int i = 0; i < s.length(); i++) {
+                if (s.charAt(i) == '{') {
+                    cnt1++;
+                } else if (s.charAt(i) == '}') {
+                    cnt2++;
+                } else if (s.charAt(i) == '(') {
+                    cnt3++;
+                } else if (s.charAt(i) == ')') {
+                    cnt4++;
+                } else if (s.charAt(i) == '[') {
+                    cnt5++;
+                } else if (s.charAt(i) == ']') {
+                    cnt6++;
                 }
-
             }
-
-            if (s1.size() == s2.size() && s3.size() == s4.size() && s5.size() == s6.size()) {
-                return true;
-            }
-            return false;
+            return ((cnt1 == cnt2) && (cnt3 == cnt4) && (cnt5 == cnt6));
         }
     }
     public static void main(String[] args){
