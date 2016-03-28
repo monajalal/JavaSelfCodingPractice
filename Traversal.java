@@ -1,13 +1,16 @@
-import apple.laf.JRSUIUtils;
 
-import java.util.logging.Level;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Created by mona on 3/3/16.
  */
 public class Traversal {
+
+    static List<String> paths= new ArrayList<>();
 
     //Preorder traversal of a binary tree
     public static void Preorder(TreeNode root){
@@ -100,6 +103,59 @@ public class Traversal {
 
 
 
+    public static List<String> binaryTreePaths(TreeNode root) {
+        // Write your code here
+        if (root==null){
+            return null;
+
+        }
+        else if (root.left==null && root.right==null) {
+            System.out.print(root.data);
+            paths.add(Integer.toString(root.data));
+        }
+
+        else if (root.left!=null && root.right!=null){
+            System.out.print(root.data+"->");
+            paths.addAll(binaryTreePaths(root.left));
+            System.out.print(root.data+"->");
+            paths.addAll(binaryTreePaths(root.right));
+        }
+        else if (root.left==null && root.right!=null){
+            System.out.print(root.data+"->");
+            paths.addAll(binaryTreePaths(root.right));
+        }
+
+        else if (root.left!=null && root.right==null){
+            System.out.print(root.data+"->");
+            paths.addAll(binaryTreePaths(root.left));
+        }
+
+
+        /*
+        else if (root.left!=null ){
+            System.out.print(root.val+"->");
+            paths.addAll(binaryTreePaths(root.left));
+            if (root.right!=null){
+                paths.addAll(binaryTreePaths(root.right));
+
+            }
+
+        }
+        else if (root.right!=null){
+            System.out.print(root.val+"->");
+            paths.addAll(binaryTreePaths(root.right));
+            if (root.left!=null ){
+                paths.addAll(binaryTreePaths(root.left));
+            }
+
+        }
+        */
+
+
+        return paths;
+
+
+    }
     public static boolean isMirror(TreeNode left, TreeNode right){
         if (left==null && right==null){
             return true;
@@ -128,28 +184,28 @@ public class Traversal {
         TreeNode n1=new TreeNode();
         TreeNode n2=new TreeNode();
         TreeNode n3=new TreeNode();
-        TreeNode n4=new TreeNode();
+       // TreeNode n4=new TreeNode();
         //TreeNode n5=new TreeNode();
         //TreeNode n6=new TreeNode();
 
         root.left=n1;
         root.right=n2;
         n1.left=n3;
-        n2.right=n4;
+      //  n2.right=n4;
 
 
-        root.data=3;
-        n1.data=6;
-        n2.data=6;
-        n3.data=1;
-        n4.data=1;
+        root.data=1;
+        n1.data=2;
+        n2.data=3;
+        n3.data=5;
+       // n4.data=1;
 
-
+        binaryTreePaths(root);
 
         //Preorder(root);
         //System.out.println(height(root));
         //TopView(root);
         //LevelOrder(root);
-        System.out.println(isSymmetric(root));
+      //  System.out.println(isSymmetric(root));
     }
 }

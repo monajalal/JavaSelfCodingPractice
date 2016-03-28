@@ -3,11 +3,11 @@
  */
 public class StringTest {
     public static void main(String args[]) {
-        String str = "Mona is a good girl";
+        String str = "Mona is! @very  a good girl";
         int len = str.length();
         String reverse= str.substring(1,4);
         char ch=str.charAt(2);
-        String[] strArr=str.split(" ");
+        String[] strArr=str.toLowerCase().split("[^\\w@]+");
         System.out.println(reverse);
         System.out.println(ch);
         for (int i=0; i<strArr.length; i++)

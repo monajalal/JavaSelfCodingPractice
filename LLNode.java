@@ -4,4 +4,5 @@
 public class LLNode {
     int data;
     LLNode next;
+
 }
