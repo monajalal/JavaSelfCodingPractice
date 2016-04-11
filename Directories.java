@@ -30,6 +30,7 @@ public class Directories {
                 " file2.gif";
 
         System.out.println(solution(S));
+        //test
 
     }
 

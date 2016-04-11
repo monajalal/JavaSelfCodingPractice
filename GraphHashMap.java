@@ -2,14 +2,9 @@
  * Created by mona on 3/26/16.
  */
 /**
- * Undirected, unweighted simple graph data type
- * <p>
- *  Notes:
- *  <ul>
- *   <li> Parallel edges are not allowed
- *   <li> Self loops are allowed
- *  </ul>
- *  <p>
+ *  Undirected, unweighted simple graph data type
+ *  Parallel edges are not allowed
+ *  Self loops are allowed
  *  This Graph class was adapted from
  *  <a href="http://www.cs.princeton.edu/introcs/45graph/Graph.java">Graph.java</a>
  */
