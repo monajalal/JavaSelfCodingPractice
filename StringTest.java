@@ -59,10 +59,21 @@ public class StringTest {
 
     }
 
+    public static String sortString(String s){
 
-    public static String[] allPermutations(String s){
+        String[] strArray= s.split("\\s+");
+        Arrays.sort(strArray);
+        StringBuilder sb = new StringBuilder();
+        for (int i=0; i<strArray.length; i++){
+            sb.append(strArray[i]);
+            sb.append(" ");
+        }
+        return sb.toString();
+    }
 
 
+    public static boolean permutation(String src, String dst){
+        return sortString(src).equals(sortString(dst));
     }
 
     public static String reverseWords(String s){
@@ -118,6 +129,8 @@ public class StringTest {
         System.out.println(removeChar("Mona", 'o'));
         System.out.println(reverseWords("Mona  is a happy      girl"));
         System.out.println(removeAllChars("Monanaaasdf","on"));
+        System.out.println(sortString("Mona Is A good girl!"));
+        System.out.println(permutation("Mona is", "is Mona"));
     }
 
 }
