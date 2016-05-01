@@ -89,6 +89,10 @@ public class StringTest {
         return sb.toString();
     }
 
+    public static String URLify(String s, int trueLength){
+        return(s.replaceAll("\\s+","%20"));
+    }
+
     public static int convertToInt(String s){
 
         return Integer.parseInt(s);
@@ -98,6 +102,32 @@ public class StringTest {
     public static String intToStr(int num){
 
         return String.valueOf(num);
+    }
+
+
+    public static boolean isValid(String s){
+
+        HashMap<Character, Character> specialChar= new HashMap<>();
+        specialChar.put('{', '}');
+        specialChar.put('[',']');
+        specialChar.put('(',')');
+        Stack<Character> stk = new Stack<>();
+        for (int i=0; i<s.length(); i++){
+
+            if (specialChar.keySet().contains(s.charAt(i))){
+                stk.push(s.charAt(i));
+            }
+            else if (specialChar.values().contains(s.charAt(i))){
+                if (!stk.empty() && stk.peek()==s.charAt(i)) {
+                    stk.pop();
+                }
+                else return false;
+            }
+
+        }
+
+        return stk.isEmpty();
+
     }
 
     public static void main(String args[]) {
@@ -123,6 +153,7 @@ public class StringTest {
 
 
         }
+
         System.out.println(s);
         System.out.println(findRepeating("hikkss"));
         System.out.println("htlllmk kl".replaceAll("l", ""));
@@ -131,6 +162,12 @@ public class StringTest {
         System.out.println(removeAllChars("Monanaaasdf","on"));
         System.out.println(sortString("Mona Is A good girl!"));
         System.out.println(permutation("Mona is", "is Mona"));
+        System.out.println(URLify("mona mona    mona ", 23));
+
+
+        System.out.println("rats live on no evil star");
+        System.out.println(isValid("[{]}"));
+
     }
 
 }
