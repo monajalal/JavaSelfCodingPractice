@@ -5,7 +5,30 @@
 import java.util.*;
 import java.util.concurrent.SynchronousQueue;
 
+
 public class StringTest {
+
+    public static String findNonRepeatingVersionTwo(String s) throws IllegalArgumentException{
+        if (s.length()>0 && s.length()<256) {
+            LinkedHashMap<Character, Integer> charCount = new LinkedHashMap<>();
+            for (int i = 0; i < s.length(); i++) {
+                if (charCount.containsKey(s.charAt(i))) {
+                    charCount.put(s.charAt(i), charCount.get(s.charAt(i)) + 1);
+                } else
+                    charCount.put(s.charAt(i), 1);
+            }
+
+            for (Character ch : charCount.keySet()) {
+                if (charCount.get(ch) == 1) {
+                    return String.valueOf(ch);
+                }
+            }
+
+            return null;
+        }
+        else throw new IllegalArgumentException("String length should be between 0 and 256 characters");
+    }
+
 
     public static char findRepeating(String s){
 
@@ -131,6 +154,7 @@ public class StringTest {
     }
 
     public static void main(String args[]) {
+
         String str = "Mona is! @very  a good girl";
         int len = str.length();
         String reverse= str.substring(1,4);
@@ -167,6 +191,12 @@ public class StringTest {
 
         System.out.println("rats live on no evil star");
         System.out.println(isValid("[{]}"));
+
+        System.out.println(findNonRepeatingVersionTwo("mona"));
+        System.out.println(findNonRepeatingVersionTwo("mmmmooooooona"));
+        System.out.println(findNonRepeatingVersionTwo(" "));
+
+
 
     }
 
