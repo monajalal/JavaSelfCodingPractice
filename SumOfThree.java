@@ -50,6 +50,12 @@ public class SumOfThree {
 
         return result;
     }
+
+
+    public static List<List<Integer>> threeSumIsZero(int[] a){
+        return sumOfThree(a,0);
+    }
+
     public static void main(String[] args){
         int[] a={1,3, 7, 8, 3, 9, 2, 4, 10};
         List<List<Integer>> triplets;
@@ -61,5 +67,17 @@ public class SumOfThree {
             }
             System.out.println();
         }
+
+        int[] zero={-1,-3, 7,0, 8,0,0,0, 3, -9, 2,-9,1,2, 4, 10};
+        List<List<Integer>> zeroTriplets;
+        //triplets=sumOfThreeNaive(a, 13);
+        zeroTriplets=threeSumIsZero(zero);
+        for (List<Integer> list : zeroTriplets){
+            for (int triplet: list){
+                System.out.print(triplet+" ");
+            }
+            System.out.println();
+        }
+
     }
 }
