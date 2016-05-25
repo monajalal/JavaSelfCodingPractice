@@ -59,6 +59,7 @@ public class WordsCharsLines {
         System.out.println(countWords(file));
         System.out.println(countChars(file));
         System.out.println(countLines(file));
+
     }
 
 
