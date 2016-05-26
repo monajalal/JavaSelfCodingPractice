@@ -40,11 +40,46 @@ public class Palindrome {
         return true;
     }
 
+
+    public static boolean isPalindromeNaive(String s) {
+        StringBuilder sb = new StringBuilder(s);
+        StringBuilder sbReverse = sb.reverse();
+
+        if (s.equals(String.valueOf(sbReverse))){
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean isPalindromLessNaive(String s) {
+        if (s.length()%2==0) {
+            for (int i = 0; i<(s.length()/2); i++) {
+                if (s.charAt(i) != s.charAt(s.length() - 1 - i)) {
+                    return false;
+                }
+            }
+        }
+        else {
+
+            for (int i=0; i<(s.length()/2); i++) {
+                if (s.charAt(i)!=s.charAt(s.length()-1-i)) {
+                    return false;
+                }
+
+            }
+
+        }
+
+        return true;
+    }
+
     public static void main (String[] argc){
         String mimim = "a.";
         Palindrome palindrome=new Palindrome();
         boolean res= palindrome.isPalindrome(mimim);
-        System.out.println("result is  = [" + res + "]");
+      //  System.out.println("result is  = [" + res + "]");
+       // System.out.println(isPalindromeNaive("ono"));
+        System.out.println(isPalindromLessNaive("osnmmno"));
         return;
     }
 

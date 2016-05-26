@@ -64,11 +64,14 @@ public class Heap {
     }
 
     public void insert(int n) {
-        heap[++size] = n;
+        size++;
+        heap[size] = n;
         int tmpLocation = size;
-        while (heap[tmpLocation] > heap[parent(tmpLocation)]){
-            swap(tmpLocation , parent(tmpLocation));
-            tmpLocation=parent(tmpLocation);
+        if (tmpLocation!=1) {
+            while (heap[tmpLocation] > heap[parent(tmpLocation)]) {
+                swap(tmpLocation, parent(tmpLocation));
+                tmpLocation = parent(tmpLocation);
+            }
         }
 
 
@@ -78,19 +81,20 @@ public class Heap {
         int removed = heap[1];
         heap[1] = heap[size-1];
         maxHeapify(1);
+        size--;
         return removed;
     }
 
     public void print() {
-        for (int i=0 ; i<=(size/2) ; i++) {
-            System.out.println("current node is: "+heap[i]+" its left child is" +
+        for (int i=1 ; i<=(size/2) ; i++) {
+            System.out.println("current node is: "+heap[i]+" its left child is " +
                     heap[i*2]+" its right child is "+heap[i*2 +1]);
         }
 
     }
 
     public static void main(String[] args) {
-        Heap heap = new Heap(9);
+        Heap heap = new Heap(8);
         heap.insert(8);
         heap.insert(18);
         heap.insert(28);
