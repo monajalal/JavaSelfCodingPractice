@@ -73,6 +73,18 @@ public class Palindrome {
         return true;
     }
 
+    public static boolean isPalindromeNicer(String s) {
+
+        for (int i=0 , j=s.length()-1 ; i<j ; i++ , j-- ) {
+
+            if ( s.charAt(i) != s.charAt(j) ) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public static void main (String[] argc){
         String mimim = "a.";
         Palindrome palindrome=new Palindrome();
@@ -80,6 +92,7 @@ public class Palindrome {
       //  System.out.println("result is  = [" + res + "]");
        // System.out.println(isPalindromeNaive("ono"));
         System.out.println(isPalindromLessNaive("osnmmno"));
+        System.out.println(isPalindromeNicer("omooomo"));
         return;
     }
 
