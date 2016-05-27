@@ -14,16 +14,10 @@ import java.util.*;
 
 public class IsomorphicStrings {
     //the words "abca" and "zbxz" are isomorphic
-    //aabc a(2) b(1) c(1)
-    //zzbx z(2) b(1) x(1)
-    //my algorithm
-    //create a sorted hashmap  on value
-    //check to see if two hashmap are equal based on their value set
-    //assuming two isomorphic strings are of the same length
 
     public static boolean areIsomorphic(String s1, String s2) {
-        Map<Character, ArrayList<Integer>> freqMap1 = new HashMap<>();
-        Map<Character, ArrayList<Integer>> freqMap2 = new HashMap<>();
+        Map<Character, ArrayList<Integer>> freqMap1 = new LinkedHashMap<>();
+        Map<Character, ArrayList<Integer>> freqMap2 = new LinkedHashMap<>();
 
         for (int i=0; i<s1.length(); i++) {
             if (freqMap1.containsKey(s1.charAt(i))) {
@@ -42,22 +36,17 @@ public class IsomorphicStrings {
             }
         }
 
-        Collection<ArrayList<Integer>> freqList1;
-        freqList1 = freqMap1.values();
-        Collection<ArrayList<Integer>> freqList2;
-        freqList2 = freqMap2.values();
+        System.out.println(freqMap1.values());
+        System.out.println(freqMap2.values());
+        return new ArrayList<>(freqMap1.values()).equals(new ArrayList<>(freqMap2.values()));
 
-
-        //Collections.sort(freqList1);
-       // Collections.sort(freqList2);
-
-        return freqList1.equals(freqList2);
+        //return freqMap1.values().equals(freqMap2.values()); won't work
 
     }
 
     public static void main(String[] args) {
-        String s1="abb";
-        String s2="aba";
+        String s1="foo";
+        String s2="app";
         System.out.println(areIsomorphic(s1, s2));
     }
 }
