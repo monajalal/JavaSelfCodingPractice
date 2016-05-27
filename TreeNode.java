@@ -6,9 +6,9 @@ public class TreeNode {
     TreeNode left;
     TreeNode right;
 
-    /*
-    TreeNode(int x){
-        data=x;
-    }
-    */
+
+    //TreeNode(int x){
+    //    data=x;
+    //}
+
 }
