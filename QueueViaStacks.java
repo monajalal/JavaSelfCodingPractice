@@ -9,7 +9,7 @@ public class QueueViaStacks {
     private Stack<Integer> firstStack = new Stack<>();
     private Stack<Integer> secondStack = new Stack<>();
 
-    public void add(int item){
+    public void add(int item) {
         while (!firstStack.isEmpty()) {
             secondStack.push(firstStack.pop());
         }
@@ -20,13 +20,13 @@ public class QueueViaStacks {
         size++;
     }
 
-    public int remove(){
+    public int remove() {
         size--;
         return firstStack.pop();
 
     }
 
-    public int size(){
+    public int size() {
         return size;
     }
 
