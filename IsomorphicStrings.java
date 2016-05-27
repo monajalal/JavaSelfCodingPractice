@@ -68,6 +68,8 @@ public class IsomorphicStrings {
 
     }
 
+    //current algorithm fails with "aba" and "baa" given as input
+
     public static void main(String[] args) {
         String s1="abca";
         String s2="zbxz";
